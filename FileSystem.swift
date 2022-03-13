@@ -173,7 +173,7 @@ final class FileSystem {
     
     // Сохранение файла в память телефона
     private class func save(file: File) {
-        let url = path.appendingPathComponent("\(file.id).skf")
+        let url = path.appendingPathComponent("\(file.id).\(ext)")
         do {
             let data = try JSONEncoder().encode(file)
             try data.write(to: url)
@@ -185,7 +185,7 @@ final class FileSystem {
     
     // Удаление файла из памяти телефона
     private class func delete(id: UUID) {
-        let url = path.appendingPathComponent("\(id).skf")
+        let url = path.appendingPathComponent("\(id).\(ext)")
         let manager = FileManager()
         do {
             try manager.removeItem(at: url)
